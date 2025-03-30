@@ -5,9 +5,9 @@ function Slider() {
   const [activeSlide, setActiveSlide] = useState(0);
 
   const images = [
-    "https://gcu.edu.pk/components/assets/img/slide3.jpg",
-    "https://gcu.edu.pk/components/assets/img/slide3.jpg",
-    "https://gcu.edu.pk/components/assets/img/slide3.jpg",
+    "https://cosmosalon.pk/wp-content/uploads/2023/05/Salon-Enviroment-q.jpg",
+    "https://ngents.com.pk/wp-content/uploads/2022/11/bcc.jpg",
+    "https://www.aminaz.com/img/banner/1.jpg",
   ];
 
   // Auto-Slide Functionality
@@ -34,6 +34,7 @@ function Slider() {
           />
         </div>
       ))}
+      <div className="absolute inset-0 bg-black opacity-70 group-hover:opacity-0 transition-opacity duration-500"></div>
 
       {/* Previous Button */}
       <button

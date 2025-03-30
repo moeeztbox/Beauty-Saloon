@@ -1,4 +1,8 @@
+import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import Counter from "../components/home/Counter";
+import FAQ from "../components/home/Faq";
+import OurServices from "../components/home/OurServices";
 import Slider from "../components/home/Slider";
 import Subscribe from "../components/home/Subscribe";
 
@@ -11,8 +15,22 @@ function Home() {
 
       {/* Slider */}
       <Slider />
+
+      {/* Our Services */}
+
+      <OurServices />
+
       {/* Subscribe  */}
       <Subscribe />
+
+      {/* Footer  */}
+      <Footer />
+
+      {/* FAQs */}
+      <FAQ />
+
+      {/* Counter  */}
+      <Counter />
     </div>
   );
 }
