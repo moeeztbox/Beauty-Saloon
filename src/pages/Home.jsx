@@ -1,4 +1,3 @@
-import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Counter from "../components/home/Counter";
 import FAQ from "../components/home/Faq";
@@ -23,14 +22,11 @@ function Home() {
       {/* Subscribe  */}
       <Subscribe />
 
-      {/* Footer  */}
-      <Footer />
+      {/* Counter  */}
+      <Counter />
 
       {/* FAQs */}
       <FAQ />
-
-      {/* Counter  */}
-      <Counter />
     </div>
   );
 }

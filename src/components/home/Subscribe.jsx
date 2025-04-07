@@ -3,14 +3,14 @@ import React from "react";
 function Subscribe() {
   return (
     <>
-      <div className="bg-gray-900 w-auto pb-8">
+      <div className="bg-gray-900 w-auto p-10">
         <div className="flex flex-col items-center justify-center">
-          <div>
-            <h1 className="text-white  text-2xl">
+          <div className="pb-6">
+            <h1 className="text-white  text-2xl font-bold">
               SUBSCRIBE & GET LATEST BEAUTY UPDATES
             </h1>
           </div>
-          <div className="w-full max-w-2xl w flex flex-row">
+          <div className="w-full max-w-2xl w flex flex-row pb-6">
             <input
               type="email"
               placeholder="info@aminaz.com"

@@ -33,6 +33,9 @@ const OurServices = () => {
   ];
   return (
     <div className="w-full py-10 px-5">
+      <h1 className="text-center text-5xl font-bold text-black mb-12">
+        Services
+      </h1>
       <Swiper
         modules={[Autoplay]}
         spaceBetween={20}

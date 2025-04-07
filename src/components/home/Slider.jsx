@@ -35,6 +35,26 @@ function Slider() {
         </div>
       ))}
       <div className="absolute inset-0 bg-black opacity-70 group-hover:opacity-0 transition-opacity duration-500"></div>
+      <div className="absolute inset-0 flex flex-col items-start justify-center text-left px-6 md:px-32">
+        <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6">
+          Welcome
+        </h2>
+        <p className="text-white text-base sm:text-lg mb-6 md:mb-10">
+          At [Your Salon Name], we believe that beauty is more than just a
+          look—it’s a feeling. From the moment you walk through our doors,
+          you’ll be welcomed into a space designed for relaxation, self-care,
+          and confidence. Our expert stylists and beauty professionals are here
+          to bring out your best, using the finest techniques and products to
+          create a look that’s uniquely you. Sit back, unwind, and let us pamper
+          you—because you deserve it!
+        </p>
+        <a
+          href="/booking"
+          className="border-2 border-pink-400 text-pink-400 px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-base sm:text-lg font-semibold hover:bg-pink-600 transition duration-300"
+        >
+          Book Your Appointment
+        </a>
+      </div>
 
       {/* Previous Button */}
       <button

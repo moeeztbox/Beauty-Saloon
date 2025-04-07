@@ -73,7 +73,7 @@ function Navbar() {
 
           {/* Right Side - Book Appointment Button & Profile Icon */}
           <div className="flex items-center space-x-4">
-            <Link to="/appointment">
+            <Link to="/booking">
               <button className="hidden lg:block bg-transparent border border-pink-400 text-pink-400 px-4 py-2 rounded hover:bg-pink-400 hover:text-white transition">
                 Book an Appointment
               </button>
@@ -84,7 +84,7 @@ function Navbar() {
                 Book Now
               </button>
             </Link>
-            <Link to="/profile">
+            <Link to="/signup">
               <HiUserCircle size={40} className="text-white cursor-pointer" />
             </Link>
           </div>
