@@ -32,10 +32,11 @@ const OurServices = () => {
     },
   ];
   return (
-    <div className="w-full py-10 px-5">
-      <h1 className="text-center text-5xl font-bold text-black mb-12">
+    <div className="w-full min-h-screen px-5">
+      <h1 className="great-vibes sm:pl-32 text-center sm:text-left text-5xl sm:text-6xl font-bold text-[#D4AF37] my-12">
         Services
       </h1>
+
       <Swiper
         modules={[Autoplay]}
         spaceBetween={20}
@@ -63,12 +64,23 @@ const OurServices = () => {
               />
 
               {/* Gray Overlay - Applied to all images */}
-              <div className="absolute inset-0 bg-black opacity-70 group-hover:opacity-0 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-70 transition-opacity duration-500"></div>
 
               {/* Text Overlay */}
-              <h2 className="absolute inset-0 flex items-center justify-center text-white text-2xl font-bold">
-                {service.name}
-              </h2>
+              <div className="group">
+                <h2 className="absolute inset-0 flex items-center justify-center text-white text-4xl font-bold great-vibes group-hover:-translate-y-35 duration-300 transition-all">
+                  {service.name}
+                </h2>
+                <p className="absolute -bottom-50 italic  text-white z-50 group-hover:block px-5 py-3 group-hover:-translate-y-50 duration-600 transition-all">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea,
+                  cupiditate. Impedit at, neque, nam officiis ea repudiandae eos
+                  praesentium dolore laudantium fugiat provident ullam
+                  accusantium sed aliquam odit, minus fuga! Lorem ipsum dolor
+                  sit, amet consectetur adipisicing elit. Ipsa cumque dolorem
+                  ipsum quisquam recusandae doloremque reiciendis deserunt unde
+                  obcaecati voluptatem?
+                </p>
+              </div>
             </a>
           </SwiperSlide>
         ))}

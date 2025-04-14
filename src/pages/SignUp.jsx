@@ -1,18 +1,14 @@
-import { useState } from "react";
-import { FiEye, FiEyeOff } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 function SignUp() {
-  const [showPassword, setShowPassword] = useState(false);
-
   return (
-    <div className="relative pt-14 flex items-center justify-center min-h-screen overflow-hidden">
+    <div className="flex items-center justify-center ">
       {/* Video Background */}
       <video
         autoPlay
         loop
         muted
-        className="absolute inset-0 w-full h-full object-cover z-0"
+        className="absolute inset-0 w-full h-11/12 object-cover z-0"
       >
         <source
           src="https://ngents.com.pk/wp-content/uploads/2018/12/website-final.mp4"
@@ -21,103 +17,82 @@ function SignUp() {
       </video>
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black opacity-60 z-10"></div>
+      <div className="absolute inset-0 h-11/12 bg-black opacity-60" />
 
       {/* Form Content */}
-      <div className="relative mt-14 mb-10 z-20 w-full max-w-2xl p-10 rounded-2xl border border-gray-500 backdrop-blur-md bg-black/30">
-        <h2 className="text-3xl font-bold text-center mb-6 text-pink-400">
+      <div className="z-20 w-full max-w-4xl p-8 ">
+        <h2 className="text-5xl great-vibes text-center mb-6 text-[#D4AF37]">
           Create an Account
         </h2>
-        <form>
-          <div className="flex flex-col space-y-6">
-            {/* Name Field */}
-            <div className="flex flex-col w-full">
-              <label htmlFor="name" className="mb-2 font-medium text-gray-200">
-                Name
-              </label>
+        <form className="space-y-6">
+          {/* Name & City Fields */}
+          <div className="flex space-x-4">
+            <div className="flex flex-col w-1/2">
+              <label className="mb-1 text-gray-200 font-light">Name</label>
               <input
                 id="name"
                 name="name"
                 type="text"
                 placeholder="Your Name"
                 required
-                className="border border-gray-500 bg-transparent text-white rounded-lg px-5 py-3 focus:outline-none focus:ring-2 focus:ring-pink-400"
+                className="border border-[#D4AF37]  text-gray-300/80 font-light px-4 py-2  outline-none"
               />
             </div>
-
-            {/* City Field */}
-            <div className="flex flex-col w-full">
-              <label htmlFor="city" className="mb-2 font-medium text-gray-200">
-                City
-              </label>
+            <div className="flex flex-col w-1/2">
+              <label className="mb-1 text-gray-200 font-light">City</label>
               <input
                 id="city"
                 name="city"
                 type="text"
                 placeholder="Your City"
                 required
-                className="border border-gray-500 bg-transparent text-white rounded-lg px-5 py-3 focus:outline-none focus:ring-2 focus:ring-pink-400"
+                className="border border-[#D4AF37]  text-gray-300/80 font-light px-4 py-2  outline-none"
               />
             </div>
+          </div>
 
-            {/* Email Field */}
-            <div className="flex flex-col w-full">
-              <label htmlFor="email" className="mb-2 font-medium text-gray-200">
-                Email
-              </label>
+          {/* Email Field  */}
+
+          <div className="flex space-x-4">
+            <div className="flex flex-col w-1/2">
+              <label className="mb-1 text-gray-200 font-light">Email</label>
               <input
                 id="email"
                 name="email"
-                type="email"
+                type="emial"
                 placeholder="Email"
                 required
-                className="border border-gray-500 bg-transparent text-white rounded-lg px-5 py-3 focus:outline-none focus:ring-2 focus:ring-pink-400"
+                className="border border-[#D4AF37]  text-gray-300/80 font-light px-4 py-2  outline-none"
               />
             </div>
-
-            {/* Password Field */}
-            <div className="flex flex-col w-full">
-              <label
-                htmlFor="password"
-                className="mb-2 font-medium text-gray-200"
-              >
-                Password
-              </label>
-              <div className="relative flex items-center">
-                <input
-                  id="password"
-                  name="password"
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Password"
-                  required
-                  className="border border-gray-500 bg-transparent text-white rounded-lg px-5 py-3 w-full focus:outline-none focus:ring-2 focus:ring-pink-400"
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword((prev) => !prev)}
-                  className="absolute right-4 text-gray-400 hover:text-pink-400 transition"
-                >
-                  {showPassword ? <FiEyeOff size={22} /> : <FiEye size={22} />}
-                </button>
-              </div>
+            <div className="flex flex-col w-1/2">
+              <label className="mb-1 text-gray-200 font-light">Password</label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                placeholder="Password"
+                required
+                className="border border-[#D4AF37]  text-gray-300/80 font-light px-4 py-2  outline-none"
+              />
             </div>
-
-            {/* Submit Button */}
-            <button
-              type="submit"
-              className="w-full bg-pink-400 hover:bg-pink-500 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 text-lg"
-            >
-              Sign Up
-            </button>
-
-            {/* Redirect Text */}
-            <p className="text-sm text-gray-300 text-center">
-              Already have an account?{" "}
-              <Link to="/signin" className="text-pink-400 hover:underline ml-1">
-                Sign In Instead
-              </Link>
-            </p>
           </div>
+
+          {/* Submit Button */}
+          <button
+            type="submit"
+            className="mx-auto block w-1/4 border border-[#D4AF37] text-gray-200/80 font-light py-3 transition duration-300 hover:bg-[#D4AF37] hover:text-black"
+          >
+            Sign Up
+          </button>
+
+          {/* Redirect Text */}
+          <p className="text-sm font-light text-center text-gray-300">
+            Already have an account?
+            <Link to="/signin" className="text-[#D4AF37] ml-1">
+              Sign In
+            </Link>
+          </p>
         </form>
       </div>
     </div>

@@ -1,6 +1,6 @@
-import Navbar from "../components/Navbar";
 import Counter from "../components/home/Counter";
-import FAQ from "../components/home/Faq";
+import GalleryPic from "../components/home/GalleryPic";
+// import FAQ from "../components/home/Faq";
 import OurServices from "../components/home/OurServices";
 import Slider from "../components/home/Slider";
 import Subscribe from "../components/home/Subscribe";
@@ -8,25 +8,17 @@ import Subscribe from "../components/home/Subscribe";
 function Home() {
   return (
     <div>
-      <Navbar />
-      {/* Spacer for Fixed Navbar */}
-      <div className="h-16"></div>
-
-      {/* Slider */}
       <Slider />
 
-      {/* Our Services */}
+      <GalleryPic />
+
+      <Counter />
 
       <OurServices />
 
-      {/* Subscribe  */}
       <Subscribe />
 
-      {/* Counter  */}
-      <Counter />
-
-      {/* FAQs */}
-      <FAQ />
+      {/* <FAQ /> */}
     </div>
   );
 }

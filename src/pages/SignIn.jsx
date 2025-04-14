@@ -1,18 +1,14 @@
-import { useState } from "react";
-import { FiEye, FiEyeOff } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 function SignIn() {
-  const [showPassword, setShowPassword] = useState(false);
-
   return (
-    <div className=" mt-8 flex items-center justify-center min-h-screen bg-gray-900 py-6 overflow-hidden">
+    <div className="flex items-center justify-center ">
       {/* Video Background */}
       <video
         autoPlay
         loop
         muted
-        className="absolute inset-0 w-full h-full object-cover z-0"
+        className="absolute inset-0 w-full h-11/12 object-cover z-0"
       >
         <source
           src="https://ngents.com.pk/wp-content/uploads/2018/12/website-final.mp4"
@@ -21,73 +17,56 @@ function SignIn() {
       </video>
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black opacity-60 z-0"></div>
+      <div className="absolute inset-0 h-11/12 bg-black opacity-60" />
 
       {/* Form Content */}
-      <div className=" w-full max-w-2xl p-10 rounded-2xl border border-gray-500 backdrop-blur-md z-10">
-        <h2 className="text-3xl font-bold text-center mb-6 text-pink-400">
+      <div className="z-20 w-full max-w-4xl p-8 ">
+        <h2 className="text-5xl great-vibes text-center mb-6 text-[#D4AF37]">
           Welcome Back!
         </h2>
-        <form>
-          <div className="flex flex-col space-y-6">
-            {/* Email Field */}
+        <form className="space-y-6">
+          {/* Email Field  */}
+
+          <div className="mx-auto w-9/12 flex flex-col space-x-4">
             <div className="flex flex-col w-full">
-              <label htmlFor="email" className="mb-2 font-medium text-gray-200">
-                Email
-              </label>
+              <label className="mb-2 text-gray-200 font-light">Email</label>
               <input
                 id="email"
                 name="email"
-                type="email"
+                type="emial"
                 placeholder="Email"
                 required
-                className="border border-gray-500 bg-transparent text-white rounded-lg px-5 py-3 focus:outline-none focus:ring-2 focus:ring-pink-400"
+                className="border border-[#D4AF37]  text-gray-300/80 font-light px-4 py-2  outline-none"
               />
             </div>
-
-            {/* Password Field */}
-            <div className="flex flex-col w-full">
-              <label
-                htmlFor="password"
-                className="mb-2 font-medium text-gray-200"
-              >
-                Password
-              </label>
-              <div className="relative flex items-center">
-                <input
-                  id="password"
-                  name="password"
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Password"
-                  required
-                  className="border border-gray-500 bg-transparent text-white rounded-lg px-5 py-3 w-full focus:outline-none focus:ring-2 focus:ring-pink-400"
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword((prev) => !prev)}
-                  className="absolute right-4 text-gray-400 hover:text-pink-400 transition"
-                >
-                  {showPassword ? <FiEyeOff size={22} /> : <FiEye size={22} />}
-                </button>
-              </div>
+            <div className="flex flex-col w-full mt-4">
+              <label className="mb-2 text-gray-200 font-light">Password</label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                placeholder="Password"
+                required
+                className="border border-[#D4AF37]  text-gray-300/80 font-light px-4 py-2  outline-none"
+              />
             </div>
-
-            {/* Submit Button */}
-            <button
-              type="submit"
-              className="w-full bg-pink-400 hover:bg-pink-500 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 text-lg"
-            >
-              Sign In
-            </button>
-
-            {/* Redirect Text */}
-            <p className="text-sm text-gray-300 text-center">
-              Don't have a account?{" "}
-              <Link to="/signup" className="text-pink-400 hover:underline ml-1">
-                Sign Up Now
-              </Link>
-            </p>
           </div>
+
+          {/* Submit Button */}
+          <button
+            type="submit"
+            className="mx-auto block w-1/4 border border-[#D4AF37] text-gray-200/80 font-light py-3 transition duration-300 hover:bg-[#D4AF37] hover:text-black"
+          >
+            Sign In
+          </button>
+
+          {/* Redirect Text */}
+          <p className="text-sm font-light text-center text-gray-300">
+            Don't have a account?
+            <Link to="/signup" className="text-[#D4AF37] ml-1">
+              Sign Up Now
+            </Link>
+          </p>
         </form>
       </div>
     </div>

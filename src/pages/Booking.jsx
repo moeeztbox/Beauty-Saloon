@@ -78,292 +78,348 @@ function Booking() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto mb-10 mt-28 px-6 py-10 rounded-xl bg-gray-900 text-white shadow-2xl">
-      {/* Progress Bar */}
-      <div className="flex justify-between items-center mb-10">
-        {steps.map((label, index) => (
-          <div key={index} className="flex-1">
-            <div
-              className={`h-2 rounded-full ${
-                index <= step ? "bg-pink-400" : "bg-gray-600"
-              } transition-all duration-500`}
-            ></div>
-          </div>
-        ))}
-      </div>
+    <div className="w-full h-full">
+      {/* Video Background */}
+      <video
+        autoPlay
+        loop
+        muted
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      >
+        <source
+          src="https://ngents.com.pk/wp-content/uploads/2018/12/website-final.mp4"
+          type="video/mp4"
+        />
+      </video>
 
-      {/* Step 1: Service Selection */}
-      {step === 0 && (
-        <div>
-          <h2 className="text-2xl font-bold text-pink-400 mb-6">
-            Service Selection
-          </h2>
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black opacity-60" />
 
-          {/* inputs... */}
-          <div className="mb-4">
-            <label className="block text-sm font-semibold mb-1">
-              Service Name
-            </label>
-            <input
-              type="text"
-              name="serviceName"
-              value={formData.serviceName}
-              onChange={handleChange}
-              placeholder="e.g., Haircut"
-              className="w-full p-3 rounded-lg bg-gray-800 border border-pink-400 text-white"
-            />
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-sm font-semibold mb-1">
-              Price (PKR)
-            </label>
-            <input
-              type="number"
-              name="price"
-              value={formData.price}
-              onChange={handleChange}
-              placeholder="e.g., 1500"
-              className="w-full p-3 rounded-lg bg-gray-800 border border-pink-400 text-white"
-            />
-          </div>
-
-          <div className="mb-6">
-            <label className="block text-sm font-semibold mb-1">
-              Duration (Minutes)
-            </label>
-            <input
-              type="number"
-              name="duration"
-              value={formData.duration}
-              onChange={handleChange}
-              placeholder="e.g., 45"
-              className="w-full p-3 rounded-lg bg-gray-800 border border-pink-400 text-white"
-            />
-          </div>
-
-          <button
-            onClick={handleNext}
-            className="flex items-center gap-2 bg-pink-400 hover:bg-pink-500 text-white px-6 py-2 rounded-lg transition"
-          >
-            Next <ChevronRight />
-          </button>
+      {/* Form Content */}
+      <div className="relative z-20 max-w-3xl mx-auto   px-6 py-10 border border-amber-200/50 text-white ">
+        {/* Progress Bar */}
+        <div className="flex justify-between items-center">
+          {steps.map((label, index) => (
+            <div key={index} className="flex-1">
+              <div
+                className={`h-2 rounded-full ${
+                  index <= step ? "bg-[#D4AF37]" : "bg-gray-600"
+                } transition-all duration-500`}
+              ></div>
+            </div>
+          ))}
         </div>
-      )}
 
-      {/* Step 2: Appointment Booking */}
-      {step === 1 && (
-        <div>
-          <h2 className="text-2xl font-bold text-pink-400 mb-6">
-            Appointment Booking
-          </h2>
+        {/* Step 1: Service Selection */}
+        {step === 0 && (
+          <div>
+            <h2 className="text-3xl text-center great-vibes font-bold text-[#D4AF37] my-6">
+              Service Selection
+            </h2>
 
-          {/* inputs... */}
-          <div className="mb-4">
-            <label className="block text-sm font-semibold mb-1">
-              Customer Name
-            </label>
-            <input
-              type="text"
-              name="customerName"
-              value={formData.customerName}
-              onChange={handleChange}
-              placeholder="e.g., Zara Khan"
-              className="w-full p-3 rounded-lg bg-gray-800 border border-pink-400 text-white"
-            />
+            <div className="mb-4">
+              <label className="block text-sm font-light mb-1 text-gray-200">
+                Service Name
+              </label>
+              <select
+                name="serviceName"
+                value={formData.serviceName}
+                onChange={handleChange}
+                className="w-full p-3 border border-[#D4AF37] text-gray-200/70 font-light outline-none "
+              >
+                <option value="">Select a service</option>
+                <option value="Haircut">Haircut</option>
+                <option value="Hair Coloring">Hair Coloring</option>
+                <option value="Facial">Facial</option>
+                <option value="Manicure">Manicure</option>
+                <option value="Pedicure">Pedicure</option>
+              </select>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div className="mb-4">
+                <label className="block text-sm font-light mb-1 text-gray-200">
+                  Price (PKR)
+                </label>
+                <input
+                  type="number"
+                  name="price"
+                  value={formData.price}
+                  onChange={handleChange}
+                  placeholder="e.g., 1500"
+                  className="w-full p-3 border border-[#D4AF37] text-gray-200/70 font-light outline-none"
+                />
+              </div>
+              <div className="mb-6">
+                <label className="block text-sm font-light mb-1 text-gray-200 ">
+                  Duration (Minutes)
+                </label>
+                <input
+                  type="number"
+                  name="duration"
+                  value={formData.duration}
+                  onChange={handleChange}
+                  placeholder="e.g., 45"
+                  className="w-full p-3 border border-[#D4AF37] text-gray-200/70 font-light outline-none"
+                />
+              </div>
+            </div>
+
+            <div className="flex justify-center">
+              <button
+                onClick={handleNext}
+                className="flex items-center gap-2 border border-[#D4AF37] text-gray-200/80 font-light hover:bg-[#D4AF37] hover:text-black px-6 py-2 transition duration-300"
+              >
+                Next <ChevronRight />
+              </button>
+            </div>
           </div>
+        )}
+        {/* Step 2: Appointment Booking */}
+        {step === 1 && (
+          <div>
+            <h2 className="text-3xl text-center great-vibes text-[#D4AF37]">
+              Appointment Booking
+            </h2>
 
-          <div className="mb-4">
-            <label className="block text-sm font-semibold mb-1">
-              Selected Service
-            </label>
-            <input
-              type="text"
-              name="selectedService"
-              value={formData.selectedService}
-              onChange={handleChange}
-              placeholder="e.g., Facial"
-              className="w-full p-3 rounded-lg bg-gray-800 border border-pink-400 text-white"
-            />
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-sm font-semibold mb-1">Stylist</label>
-            <input
-              type="text"
-              name="stylist"
-              value={formData.stylist}
-              onChange={handleChange}
-              placeholder="e.g., Ayesha"
-              className="w-full p-3 rounded-lg bg-gray-800 border border-pink-400 text-white"
-            />
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-sm font-semibold mb-1">Date</label>
-            <input
-              type="date"
-              name="date"
-              value={formData.date}
-              onChange={handleChange}
-              className="w-full p-3 rounded-lg bg-gray-800 border border-pink-400 text-white"
-            />
-          </div>
-
-          <div className="mb-6">
-            <label className="block text-sm font-semibold mb-1">Time</label>
-            <input
-              type="time"
-              name="time"
-              value={formData.time}
-              onChange={handleChange}
-              className="w-full p-3 rounded-lg bg-gray-800 border border-pink-400 text-white"
-            />
-          </div>
-
-          <button
-            onClick={handleNext}
-            className="flex items-center gap-2 bg-pink-400 hover:bg-pink-500 text-white px-6 py-2 rounded-lg transition"
-          >
-            Next <ChevronRight />
-          </button>
-        </div>
-      )}
-
-      {/* Step 3: Payment */}
-      {step === 2 && (
-        <div>
-          <h2 className="text-2xl font-bold text-pink-400 mb-6">Payment</h2>
-
-          {/* payment inputs... */}
-          <div className="mb-4">
-            <label className="block text-sm font-semibold mb-1">
-              Cardholder Name
-            </label>
-            <input
-              type="text"
-              name="cardName"
-              value={formData.cardName}
-              onChange={handleChange}
-              placeholder="e.g., Zara Khan"
-              className="w-full p-3 rounded-lg bg-gray-800 border border-pink-400 text-white"
-            />
-          </div>
-
-          <div className="mb-4">
-            <label className="block text-sm font-semibold mb-1">
-              Card Number
-            </label>
-            <input
-              type="text"
-              name="cardNumber"
-              value={formData.cardNumber}
-              onChange={handleChange}
-              placeholder="1234 5678 9012 3456"
-              className="w-full p-3 rounded-lg bg-gray-800 border border-pink-400 text-white"
-            />
-          </div>
-
-          <div className="grid grid-cols-2 gap-4 mb-4">
-            <div>
-              <label className="block text-sm font-semibold mb-1">
-                Expiry Date
+            <div className="mb-4">
+              <label className="block text-sm font-light mb-1 text-gray-200">
+                Customer Name
               </label>
               <input
                 type="text"
-                name="expiryDate"
-                value={formData.expiryDate}
+                name="customerName"
+                value={formData.customerName}
                 onChange={handleChange}
-                placeholder="MM/YY"
-                className="w-full p-3 rounded-lg bg-gray-800 border border-pink-400 text-white"
+                placeholder="e.g., Zara Khan"
+                className="w-full p-3 border border-[#D4AF37] text-gray-200/70 font-light outline-none"
               />
             </div>
 
-            <div>
-              <label className="block text-sm font-semibold mb-1">CVV</label>
-              <input
-                type="password"
-                name="cvv"
-                value={formData.cvv}
-                onChange={handleChange}
-                placeholder="123"
-                className="w-full p-3 rounded-lg bg-gray-800 border border-pink-400 text-white"
-              />
+            <div className="grid grid-cols-2 gap-4">
+              <div className="mb-4">
+                <label className="block text-sm font-light mb-1 text-gray-200">
+                  Selected Service
+                </label>
+                <select
+                  name="selectedService"
+                  value={formData.selectedService}
+                  onChange={handleChange}
+                  className="w-full p-3 border border-[#D4AF37] text-black font-light outline-none bg-transparent appearance-none"
+                >
+                  <option value="">Select a service</option>
+                  <option value="Haircut">Haircut</option>
+                  <option value="Hair Coloring">Hair Coloring</option>
+                  <option value="Facial">Facial</option>
+                  <option value="Manicure">Manicure</option>
+                  <option value="Pedicure">Pedicure</option>
+                </select>
+              </div>
+
+              <div className="mb-4">
+                <label className="block text-sm font-light mb-1 text-gray-200">
+                  Stylist
+                </label>
+                <select
+                  name="stylist"
+                  value={formData.stylist}
+                  onChange={handleChange}
+                  className="w-full p-3 border border-[#D4AF37] text-black font-light outline-none bg-transparent appearance-none"
+                >
+                  <option value="">Select a stylist</option>
+                  <option value="Ayesha">Anwar</option>
+                  <option value="Sarah">Obaid</option>
+                  <option value="Maya">Haris</option>
+                  <option value="Tariq">Tariq</option>
+                  <option value="Ali">Ali</option>
+                </select>
+              </div>
             </div>
-          </div>
 
-          <div className="mb-6">
-            <label className="block text-sm font-semibold mb-1">
-              Billing Address
-            </label>
-            <input
-              type="text"
-              name="billingAddress"
-              value={formData.billingAddress}
-              onChange={handleChange}
-              placeholder="Street, City, Country"
-              className="w-full p-3 rounded-lg bg-gray-800 border border-pink-400 text-white"
-            />
-          </div>
-
-          <button
-            onClick={handleNext}
-            className="flex items-center gap-2 bg-pink-400 hover:bg-pink-500 text-white px-6 py-2 rounded-lg transition"
-          >
-            Next <ChevronRight />
-          </button>
-        </div>
-      )}
-
-      {/* Step 4: Feedback */}
-      {step === 3 && (
-        <div>
-          <h2 className="text-2xl font-bold text-pink-400 mb-6">
-            Feedback & Ratings
-          </h2>
-
-          <div className="mb-4">
-            <label className="block text-sm font-semibold mb-2">
-              Rate Your Experience
-            </label>
-            <div className="flex gap-2">
-              {[1, 2, 3, 4, 5].map((star) => (
-                <Star
-                  key={star}
-                  size={28}
-                  className={`cursor-pointer ${
-                    star <= formData.rating
-                      ? "fill-pink-400 text-pink-400"
-                      : "text-gray-500"
-                  }`}
-                  onClick={() => handleRating(star)}
+            <div className="grid grid-cols-2 gap-4 mb-6">
+              <div className="mb-4">
+                <label className="block text-sm font-light mb-1 text-gray-200">
+                  Date
+                </label>
+                <input
+                  type="date"
+                  name="date"
+                  value={formData.date}
+                  onChange={handleChange}
+                  className="w-full p-3 border border-[#D4AF37] text-gray-200/70 font-light outline-none"
                 />
-              ))}
+              </div>
+
+              <div className="mb-4">
+                <label className="block text-sm font-light mb-1 text-gray-200">
+                  Time
+                </label>
+                <input
+                  type="time"
+                  name="time"
+                  value={formData.time}
+                  onChange={handleChange}
+                  className="w-full p-3 border border-[#D4AF37] text-gray-200/70 font-light outline-none"
+                />
+              </div>
+            </div>
+
+            <div className="flex justify-center mt-6">
+              <button
+                onClick={handleNext}
+                className="flex items-center gap-2 border border-[#D4AF37] text-gray-200/80 font-light hover:bg-[#D4AF37] hover:text-black px-6 py-2 transition duration-300"
+              >
+                Next <ChevronRight />
+              </button>
             </div>
           </div>
+        )}
 
-          <div className="mb-6 mt-4">
-            <label className="block text-sm font-semibold mb-1">
-              Feedback (Optional)
-            </label>
-            <textarea
-              name="feedback"
-              value={formData.feedback}
-              onChange={handleChange}
-              placeholder="Share your thoughts..."
-              className="w-full p-3 rounded-lg bg-gray-800 border border-pink-400 text-white"
-              rows={4}
-            ></textarea>
+        {/* Step 3: Payment */}
+        {step === 2 && (
+          <div>
+            <h2 className="text-3xl text-center great-vibes text-[#D4AF37] my-2">
+              Payment
+            </h2>
+
+            <div className="grid grid-cols-2 gap-4 mb-4">
+              <div>
+                <label className="block text-sm font-light mb-1 text-gray-200">
+                  Cardholder Name
+                </label>
+                <input
+                  type="text"
+                  name="cardName"
+                  value={formData.cardName}
+                  onChange={handleChange}
+                  placeholder="e.g., Zara Khan"
+                  className="w-full p-3 border border-[#D4AF37] text-gray-200/70 font-light bg-transparent outline-none"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-light mb-1 text-gray-200">
+                  Card Number
+                </label>
+                <input
+                  type="text"
+                  name="cardNumber"
+                  value={formData.cardNumber}
+                  onChange={handleChange}
+                  placeholder="1234 5678 9012 3456"
+                  className="w-full p-3 border border-[#D4AF37] text-gray-200/70 font-light bg-transparent outline-none"
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4 mb-4">
+              <div>
+                <label className="block text-sm font-light mb-1 text-gray-200">
+                  Expiry Date
+                </label>
+                <input
+                  type="text"
+                  name="expiryDate"
+                  value={formData.expiryDate}
+                  onChange={handleChange}
+                  placeholder="MM/YY"
+                  className="w-full p-3 border border-[#D4AF37] text-gray-200/70 font-light bg-transparent outline-none"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-light mb-1 text-gray-200">
+                  CVV
+                </label>
+                <input
+                  type="password"
+                  name="cvv"
+                  value={formData.cvv}
+                  onChange={handleChange}
+                  placeholder="123"
+                  className="w-full p-3 border border-[#D4AF37] text-gray-200/70 font-light bg-transparent outline-none"
+                />
+              </div>
+            </div>
+
+            <div className="mb-6">
+              <label className="block text-sm font-light mb-1 text-gray-200">
+                Billing Address
+              </label>
+              <input
+                type="text"
+                name="billingAddress"
+                value={formData.billingAddress}
+                onChange={handleChange}
+                placeholder="Street, City, Country"
+                className="w-full p-3 border border-[#D4AF37] text-gray-200/70 font-light bg-transparent outline-none"
+              />
+            </div>
+
+            <div className="flex justify-center mt-6">
+              <button
+                onClick={handleNext}
+                className="flex items-center gap-2 border border-[#D4AF37] text-gray-200/80 font-light hover:bg-[#D4AF37] hover:text-black px-6 py-2 transition duration-300"
+              >
+                Next <ChevronRight />
+              </button>
+            </div>
           </div>
+        )}
 
-          <button
-            onClick={handleSubmit}
-            className="bg-pink-400 hover:bg-pink-500 text-white px-6 py-2 rounded-lg transition"
-          >
-            Submit Feedback
-          </button>
-        </div>
-      )}
+        {/* Step 4: Feedback */}
+        {step === 3 && (
+          <div>
+            <h2 className="text-2xl text-center great-vibes text-[#D4AF37] my-3">
+              Feedback & Ratings
+            </h2>
+
+            <div className="mb-4">
+              <label className="block text-sm font-light mb-1 text-gray-200">
+                Rate Your Experience
+              </label>
+              <div className="flex gap-2">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <Star
+                    key={star}
+                    size={28}
+                    className={`cursor-pointer ${
+                      star <= formData.rating
+                        ? "fill-[#D4AF37] text-[#D4AF37]"
+                        : "text-gray-500"
+                    }`}
+                    onClick={() => handleRating(star)}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div className="mb-6 mt-4">
+              <label className="block text-sm font-light mb-1 text-gray-200">
+                Feedback (Optional)
+              </label>
+              <textarea
+                name="feedback"
+                value={formData.feedback}
+                onChange={handleChange}
+                placeholder="Share your thoughts..."
+                className="w-full p-3 border border-[#D4AF37] text-gray-200/70 italic placeholder:italic font-light bg-transparent outline-none"
+                rows={4}
+              ></textarea>
+            </div>
+
+            {/* Center the Submit button */}
+            <div className="flex justify-center mt-6">
+              <button
+                onClick={handleSubmit}
+                className="flex items-center gap-2 px-6 py-2 border border-[#D4AF37] text-gray-200/80 font-light hover:bg-[#D4AF37] hover:text-black transition duration-300"
+              >
+                Submit Feedback
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

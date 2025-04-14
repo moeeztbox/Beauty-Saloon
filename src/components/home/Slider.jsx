@@ -18,7 +18,7 @@ function Slider() {
     return () => clearInterval(interval);
   }, [images.length]);
   return (
-    <div className="relative w-full h-[400px] md:h-[450px] lg:h-[550px] overflow-hidden">
+    <div className="w-full min-h-screen">
       {/* Slides */}
       {images.map((img, index) => (
         <div
@@ -34,23 +34,20 @@ function Slider() {
           />
         </div>
       ))}
-      <div className="absolute inset-0 bg-black opacity-70 group-hover:opacity-0 transition-opacity duration-500"></div>
-      <div className="absolute inset-0 flex flex-col items-start justify-center text-left px-6 md:px-32">
-        <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6">
+      <div className="absolute inset-0 bg-black/50  group-hover:opacity-0 transition-opacity duration-500" />
+      <div className="absolute inset-0 flex flex-col items-start justify-center text-left px-6  md:px-32 pt-32">
+        <h2 className="text-white text-3xl sm:text-4xl md:text-6xl font-thin great-vibes tracking-widest mb-4 md:mb-6">
           Welcome
         </h2>
-        <p className="text-white text-base sm:text-lg mb-6 md:mb-10">
-          At [Your Salon Name], we believe that beauty is more than just a
-          look—it’s a feeling. From the moment you walk through our doors,
-          you’ll be welcomed into a space designed for relaxation, self-care,
-          and confidence. Our expert stylists and beauty professionals are here
-          to bring out your best, using the finest techniques and products to
-          create a look that’s uniquely you. Sit back, unwind, and let us pamper
-          you—because you deserve it!
+        <p className="text-white italic font-light opacity-70 text-base sm:text-lg mb-6 md:mb-10">
+          Relax, recharge, and reveal your best self with our expert touch,
+          experience tailored treatments,
+          <br /> luxurious care, and the artistry that brings out your true
+          beauty.
         </p>
         <a
           href="/booking"
-          className="border-2 border-pink-400 text-pink-400 px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-base sm:text-lg font-semibold hover:bg-pink-600 transition duration-300"
+          className="border-2 border-white text-white px-4 sm:px-6 py-2 sm:py-3 text-base sm:text-sm font-semibold hover:border-[#D4AF37] hover:text-[#D4AF37] hover:scale-105 transition duration-200"
         >
           Book Your Appointment
         </a>

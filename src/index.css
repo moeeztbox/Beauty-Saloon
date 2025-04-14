@@ -1,1 +1,12 @@
 @import "tailwindcss";
+.great-vibes {
+  font-family: "Great Vibes", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+body {
+  overflow-y: scroll;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
