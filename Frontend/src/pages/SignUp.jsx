@@ -1,6 +1,47 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function SignUp() {
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    name: "",
+    city: "",
+    email: "",
+    password: "",
+  });
+
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      setError(""); // Clear previous errors
+      const res = await axios.post(
+        "http://localhost:5000/api/signup",
+        formData
+      );
+
+      console.log(res.data);
+      alert(res.data.message); // Sign Up successful message
+
+      // Redirect to login page after signup
+      navigate("/signin");
+    } catch (err) {
+      console.error(err);
+      if (err.response && err.response.data && err.response.data.message) {
+        setError(err.response.data.message);
+      } else {
+        setError("Something went wrong");
+      }
+    }
+  };
+
   return (
     <div className="flex items-center justify-center ">
       {/* Video Background */}
@@ -24,7 +65,7 @@ function SignUp() {
         <h2 className="text-5xl great-vibes text-center mb-6 text-[#D4AF37]">
           Create an Account
         </h2>
-        <form className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-6">
           {/* Name & City Fields */}
           <div className="flex space-x-4">
             <div className="flex flex-col w-1/2">
@@ -34,8 +75,10 @@ function SignUp() {
                 name="name"
                 type="text"
                 placeholder="Your Name"
+                value={formData.name}
+                onChange={handleChange}
                 required
-                className="border border-[#D4AF37]  text-gray-300/80 font-light px-4 py-2  outline-none"
+                className="border border-[#D4AF37] text-gray-300/80 font-light px-4 py-2 outline-none"
               />
             </div>
             <div className="flex flex-col w-1/2">
@@ -45,24 +88,27 @@ function SignUp() {
                 name="city"
                 type="text"
                 placeholder="Your City"
+                value={formData.city}
+                onChange={handleChange}
                 required
-                className="border border-[#D4AF37]  text-gray-300/80 font-light px-4 py-2  outline-none"
+                className="border border-[#D4AF37] text-gray-300/80 font-light px-4 py-2 outline-none"
               />
             </div>
           </div>
 
-          {/* Email Field  */}
-
+          {/* Email & Password Fields */}
           <div className="flex space-x-4">
             <div className="flex flex-col w-1/2">
               <label className="mb-1 text-gray-200 font-light">Email</label>
               <input
                 id="email"
                 name="email"
-                type="emial"
+                type="email"
                 placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
                 required
-                className="border border-[#D4AF37]  text-gray-300/80 font-light px-4 py-2  outline-none"
+                className="border border-[#D4AF37] text-gray-300/80 font-light px-4 py-2 outline-none"
               />
             </div>
             <div className="flex flex-col w-1/2">
@@ -72,11 +118,16 @@ function SignUp() {
                 name="password"
                 type="password"
                 placeholder="Password"
+                value={formData.password}
+                onChange={handleChange}
                 required
-                className="border border-[#D4AF37]  text-gray-300/80 font-light px-4 py-2  outline-none"
+                className="border border-[#D4AF37] text-gray-300/80 font-light px-4 py-2 outline-none"
               />
             </div>
           </div>
+
+          {/* Show Error if any */}
+          {error && <p className="text-center text-red-500">{error}</p>}
 
           {/* Submit Button */}
           <button
