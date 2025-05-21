@@ -32,7 +32,7 @@ const OurServices = () => {
     },
   ];
   return (
-    <div className="w-full min-h-screen px-5">
+    <div className="w-full h-auto px-5">
       <h1 className="great-vibes sm:pl-32 text-center sm:text-left text-5xl sm:text-6xl font-bold text-[#D4AF37] my-12">
         Services
       </h1>
