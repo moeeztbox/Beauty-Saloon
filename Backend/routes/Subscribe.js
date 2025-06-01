@@ -1,24 +1,33 @@
 import { Router } from "express";
-const router = Router();
-import Subscriber from "../models/Subscriber.js";
+import Subscribe from "../models/Subscriber.js";
 
-router.post("/", async (req, res) => {
+const router = Router();
+
+router.post("/subscribe", async (req, res) => {
   const { email } = req.body;
 
   if (!email) {
     return res.status(400).json({ message: "Email is required" });
   }
 
+  if (email.length < 11) {
+    return res
+      .status(400)
+      .json({ message: "Email must be at least 11 characters long." });
+  }
+
   try {
-    const newSubscriber = new Subscriber({ email });
+    const existing = await Subscribe.findOne({ email });
+    if (existing) {
+      return res.status(409).json({ message: "Email already subscribed" });
+    }
+    const newSubscriber = new Subscribe({ email });
     await newSubscriber.save();
+
     res.status(201).json({ message: "Subscribed successfully!" });
   } catch (err) {
-    if (err.code === 11000) {
-      res.status(409).json({ message: "Email already subscribed" });
-    } else {
-      res.status(500).json({ message: "Server error" });
-    }
+    console.error("Error subscribing:", err);
+    res.status(500).json({ message: "Server error" });
   }
 });
 

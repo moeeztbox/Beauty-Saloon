@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import axios from "axios";
 import ServiceSelection from "../components/booking/ServiceSelection";
 import Appointment from "../components/booking/Appointment";
 import Payment from "../components/booking/Payment";
@@ -77,19 +77,30 @@ function Booking() {
     }
   };
 
-  const handleSubmit = () => {
-    console.log("Submitted Feedback:", {
-      rating: formData.rating,
-      feedback: formData.feedback,
-    });
-
-    alert("Thank you for your feedback! 💖");
-    navigate("/");
+  const handleSubmit = async () => {
+    try {
+      const res = await axios.post(
+        "http://localhost:5000/api/booking",
+        formData
+      );
+      alert(res.data.message);
+      navigate("/");
+    } catch (error) {
+      console.error("Booking submission error:", error);
+      if (
+        error.response &&
+        error.response.data &&
+        error.response.data.message
+      ) {
+        alert(error.response.data.message);
+      } else {
+        alert("Failed to submit booking. Please try again later.");
+      }
+    }
   };
 
   return (
     <div className="w-full h-full relative">
-      {/* Video Background */}
       <video
         autoPlay
         loop
@@ -102,12 +113,9 @@ function Booking() {
         />
       </video>
 
-      {/* Dark Overlay */}
       <div className="absolute inset-0 bg-black opacity-60 z-10" />
 
-      {/* Form Content */}
       <div className="relative z-20 max-w-3xl mx-auto px-6 py-10 border border-amber-200/50 text-white">
-        {/* Progress Bar */}
         <div className="flex justify-between items-center mb-8">
           {steps.map((label, index) => (
             <div key={index} className="flex-1 px-1">
@@ -120,7 +128,6 @@ function Booking() {
           ))}
         </div>
 
-        {/* Step Rendering */}
         {step === 0 && (
           <ServiceSelection
             formData={formData}

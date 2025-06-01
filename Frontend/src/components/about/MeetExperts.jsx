@@ -1,5 +1,3 @@
-import React from "react";
-
 function MeetExperts() {
   return (
     <section className="max-w-6xl mx-auto p-8">

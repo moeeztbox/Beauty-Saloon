@@ -54,10 +54,8 @@ const FAQ = () => {
           "url('https://cosmosalon.pk/wp-content/uploads/2023/05/photo-1496147539180-13929f8aa03a-1.jpeg')",
       }}
     >
-      {/* Dark Overlay for Reduced Opacity Effect */}
       <div className="absolute inset-0 bg-black opacity-60 group-hover:opacity-0 transition-opacity duration-500"></div>
 
-      {/* Content Section */}
       <div className="relative max-w-4xl mx-auto text-center">
         <h2 className="text-sm font-semibold text-gray-400 uppercase">
           Frequently Asked Questions

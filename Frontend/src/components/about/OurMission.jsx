@@ -1,5 +1,3 @@
-import React from "react";
-
 function OurMission() {
   return (
     <div className="border-r border-[#D4AF37] pr-8">

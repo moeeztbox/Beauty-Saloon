@@ -11,8 +11,6 @@ function SignUp() {
     password: "",
   });
 
-  const [error, setError] = useState("");
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -20,31 +18,48 @@ function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const { name, city, email, password } = formData;
+
+    if (name.length < 3) {
+      return alert("Name must be at least 3 characters long.");
+    }
+
+    if (city.length < 4) {
+      return alert("City must be at least 4 characters long.");
+    }
+
+    if (email.length < 11) {
+      return alert("Email must be at least 11 characters.");
+    }
+
+    if (password.length < 8) {
+      return alert("Password must be at least 8 characters long.");
+    }
+
     try {
-      setError(""); // Clear previous errors
       const res = await axios.post(
         "http://localhost:5000/api/signup",
         formData
       );
 
-      console.log(res.data);
-      alert(res.data.message); // Sign Up successful message
-
-      // Redirect to login page after signup
+      alert(res.data.message);
       navigate("/signin");
-    } catch (err) {
+    } catch (error) {
       console.error(err);
-      if (err.response && err.response.data && err.response.data.message) {
-        setError(err.response.data.message);
+      if (
+        error.response &&
+        error.response.data &&
+        error.response.data.message
+      ) {
+        alert(error.response.data.message);
       } else {
-        setError("Something went wrong");
+        alert("Something went wrong");
       }
     }
   };
 
   return (
     <div className="flex items-center justify-center ">
-      {/* Video Background */}
       <video
         autoPlay
         loop
@@ -57,16 +72,13 @@ function SignUp() {
         />
       </video>
 
-      {/* Dark Overlay */}
       <div className="absolute inset-0 h-11/12 bg-black opacity-60" />
 
-      {/* Form Content */}
       <div className="z-20 w-full max-w-4xl p-8 ">
         <h2 className="text-5xl great-vibes text-center mb-6 text-[#D4AF37]">
           Create an Account
         </h2>
         <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Name & City Fields */}
           <div className="flex space-x-4">
             <div className="flex flex-col w-1/2">
               <label className="mb-1 text-gray-200 font-light">Name</label>
@@ -96,7 +108,6 @@ function SignUp() {
             </div>
           </div>
 
-          {/* Email & Password Fields */}
           <div className="flex space-x-4">
             <div className="flex flex-col w-1/2">
               <label className="mb-1 text-gray-200 font-light">Email</label>
@@ -126,10 +137,6 @@ function SignUp() {
             </div>
           </div>
 
-          {/* Show Error if any */}
-          {error && <p className="text-center text-red-500">{error}</p>}
-
-          {/* Submit Button */}
           <button
             type="submit"
             className="mx-auto block w-1/4 border border-[#D4AF37] text-gray-200/80 font-light py-3 transition duration-300 hover:bg-[#D4AF37] hover:text-black"
@@ -137,7 +144,6 @@ function SignUp() {
             Sign Up
           </button>
 
-          {/* Redirect Text */}
           <p className="text-sm font-light text-center text-gray-300">
             Already have an account?
             <Link to="/signin" className="text-[#D4AF37] ml-1">

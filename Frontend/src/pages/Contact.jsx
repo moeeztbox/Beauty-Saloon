@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Complain from "../components/contact/Complain";
 import AnyQuery from "../components/contact/AnyQuery";
 import Map from "../components/contact/Map";
@@ -10,7 +10,6 @@ function Contact() {
     <>
       <Map />
       <div className="flex flex-col items-center justify-center py-10 bg-gray-100 border-t border-t-[#D4AF37]">
-        {/* Tabs */}
         <div className="flex space-x-4 mb-8">
           <button
             onClick={() => setActiveTab("complain")}
@@ -35,7 +34,6 @@ function Contact() {
           </button>
         </div>
 
-        {/* Active Tab Content */}
         <div className="w-full">
           {activeTab === "complain" && <Complain />}
           {activeTab === "query" && <AnyQuery />}

@@ -1,5 +1,3 @@
-import React from "react";
-
 function Counter() {
   const stats = [
     { label: "Clients", target: 500 },

@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/main/Navbar"; // Import the Navbar
+import Navbar from "./components/main/Navbar";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -10,6 +10,7 @@ import SignUp from "./pages/SignUp";
 import ContactUs from "./components/main/ContactUs";
 import Footer from "./components/main/Footer";
 import ScrollToTop from "./components/main/Scroll";
+import Cancel from "./pages/Cancel";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/managebooking" element={<Cancel />} />
       </Routes>
       <ContactUs />
       <Footer />

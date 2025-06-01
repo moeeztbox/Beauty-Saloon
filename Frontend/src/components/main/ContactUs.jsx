@@ -80,7 +80,6 @@ function ContactUs() {
 
   return (
     <div className="flex flex-col lg:flex-row justify-around py-10 px-5 md:px-20 bg-black/90 text-white ">
-      {/* Quick Links */}
       <div className="mb-6 lg:mb-0 w-full lg:w-auto">
         <h2 className="text-white  text-2xl great-vibes border-b-2 border-white w-fit pb-1 mb-4">
           Quick Links
@@ -94,7 +93,6 @@ function ContactUs() {
         </div>
       </div>
 
-      {/* Contact */}
       <div className="mb-6 lg:mb-0">
         <h2 className="text-white text-2xl great-vibes border-b-2 border-white w-fit pb-1 mb-4">
           Contact
@@ -117,7 +115,6 @@ function ContactUs() {
         </div>
       </div>
 
-      {/* Follow Us */}
       <div className="mb-6 lg:mb-0">
         <h2 className="text-white text-2xl great-vibes border-b-2 border-white w-fit pb-1 mb-4">
           Follow Us
@@ -140,7 +137,6 @@ function ContactUs() {
         </div>
       </div>
 
-      {/* Business Hour */}
       <div>
         <h2 className="text-white text-2xl great-vibes border-b-2 border-white w-fit pb-1 mb-4">
           Business Hour

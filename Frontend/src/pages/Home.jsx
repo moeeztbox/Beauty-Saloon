@@ -1,6 +1,5 @@
 import Counter from "../components/home/Counter";
 import GalleryPic from "../components/home/GalleryPic";
-// import FAQ from "../components/home/Faq";
 import OurServices from "../components/home/OurServices";
 import Slider from "../components/home/Slider";
 import Subscribe from "../components/home/Subscribe";
@@ -17,8 +16,6 @@ function Home() {
       <OurServices />
 
       <Subscribe />
-
-      {/* <FAQ /> */}
     </div>
   );
 }

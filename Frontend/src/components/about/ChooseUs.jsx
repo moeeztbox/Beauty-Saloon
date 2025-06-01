@@ -1,5 +1,3 @@
-import React from "react";
-
 function ChooseUs() {
   return (
     <section className="bg-gray-100 p-8">

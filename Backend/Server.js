@@ -3,7 +3,11 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 import authRoutes from "./routes/Auth.js";
-import subscribeRoutes from "./routes/Subscribe.js"; // 👈 Add this
+import subscribeRoutes from "./routes/Subscribe.js";
+import queryRoutes from "./routes/Query.js";
+import complainRoutes from "./routes/Complain.js";
+import bookingRoutes from "./routes/Booking.js";
+import cancelRoutes from "./routes/Cancel.js";
 
 dotenv.config();
 
@@ -17,7 +21,11 @@ mongoose
   .catch((err) => console.log(err));
 
 app.use("/api", authRoutes);
-app.use("/api/subscribe", subscribeRoutes); // 👈 Enable subscription API
+app.use("/api", subscribeRoutes);
+app.use("/api", queryRoutes);
+app.use("/api", complainRoutes);
+app.use("/api", bookingRoutes);
+app.use("/api", cancelRoutes);
 
 app.get("/", (req, res) => {
   res.send("Backend is running!");

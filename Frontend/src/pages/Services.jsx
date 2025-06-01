@@ -1,46 +1,43 @@
-import React from "react";
-
-const services = [
-  {
-    name: "Haircut",
-    description: "A stylish haircut to suit your personality.",
-    price: "1500 PKR",
-    duration: "45 minutes",
-  },
-  {
-    name: "Massage",
-    description: "A good massage to relax your body.",
-    price: "1000 PKR",
-    duration: "40 minutes",
-  },
-  {
-    name: "Hair Coloring",
-    description:
-      "Add a splash of color to your hair with professional coloring.",
-    price: "2000 PKR",
-    duration: "60 minutes",
-  },
-  {
-    name: "Facial",
-    description: "Relax and rejuvenate your skin with a luxurious facial.",
-    price: "1800 PKR",
-    duration: "50 minutes",
-  },
-  {
-    name: "Manicure",
-    description: "Pamper your hands and nails with a professional manicure.",
-    price: "1000 PKR",
-    duration: "40 minutes",
-  },
-  {
-    name: "Pedicure",
-    description: "Relax and refresh your feet with a soothing pedicure.",
-    price: "1200 PKR",
-    duration: "50 minutes",
-  },
-];
-
 function Services() {
+  const services = [
+    {
+      name: "Haircut",
+      description: "A stylish haircut to suit your personality.",
+      price: "1500 PKR",
+      duration: "45 minutes",
+    },
+    {
+      name: "Massage",
+      description: "A good massage to relax your body.",
+      price: "1000 PKR",
+      duration: "40 minutes",
+    },
+    {
+      name: "Hair Coloring",
+      description:
+        "Add a splash of color to your hair with professional coloring.",
+      price: "2000 PKR",
+      duration: "60 minutes",
+    },
+    {
+      name: "Facial",
+      description: "Relax and rejuvenate your skin with a luxurious facial.",
+      price: "1800 PKR",
+      duration: "50 minutes",
+    },
+    {
+      name: "Manicure",
+      description: "Pamper your hands and nails with a professional manicure.",
+      price: "1000 PKR",
+      duration: "40 minutes",
+    },
+    {
+      name: "Pedicure",
+      description: "Relax and refresh your feet with a soothing pedicure.",
+      price: "1200 PKR",
+      duration: "50 minutes",
+    },
+  ];
   return (
     <div className="bg-gray-900 text-white min-h-screen py-12">
       <div className="container mx-auto px-6 text-center">

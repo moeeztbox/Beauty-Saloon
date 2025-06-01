@@ -1,4 +1,3 @@
-import React from "react";
 import { useState, useEffect } from "react";
 
 function Slider() {
@@ -10,7 +9,6 @@ function Slider() {
     "https://www.aminaz.com/img/banner/1.jpg",
   ];
 
-  // Auto-Slide Functionality
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % images.length);
@@ -19,7 +17,6 @@ function Slider() {
   }, [images.length]);
   return (
     <div className="w-full min-h-screen">
-      {/* Slides */}
       {images.map((img, index) => (
         <div
           key={index}
@@ -53,7 +50,6 @@ function Slider() {
         </a>
       </div>
 
-      {/* Previous Button */}
       <button
         aria-label="Previous Slide"
         onClick={() =>
@@ -66,7 +62,6 @@ function Slider() {
         &#10094;
       </button>
 
-      {/* Next Button */}
       <button
         aria-label="Next Slide"
         onClick={() => setActiveSlide((activeSlide + 1) % images.length)}
@@ -74,8 +69,6 @@ function Slider() {
       >
         &#10095;
       </button>
-
-      {/* Indicators */}
     </div>
   );
 }

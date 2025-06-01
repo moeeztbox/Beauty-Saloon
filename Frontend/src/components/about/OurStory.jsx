@@ -1,5 +1,3 @@
-import React from "react";
-
 function OurStory() {
   return (
     <section className="max-w-6xl mx-auto p-8 space-y-6">

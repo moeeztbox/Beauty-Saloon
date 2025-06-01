@@ -12,4 +12,5 @@ const subscriberSchema = new Schema({
   },
 });
 
-export default model("Subscriber", subscriberSchema);
+const Subscribe = model("Subscriber", subscriberSchema);
+export default Subscribe;

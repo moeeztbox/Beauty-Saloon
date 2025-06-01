@@ -41,8 +41,8 @@ const OurServices = () => {
         modules={[Autoplay]}
         spaceBetween={20}
         slidesPerView={3}
-        loop={true} // Enables infinite looping
-        autoplay={{ delay: 3000, disableOnInteraction: false }} // Auto-slide
+        loop={true}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
         breakpoints={{
           320: { slidesPerView: 1 },
           768: { slidesPerView: 2 },
@@ -56,17 +56,14 @@ const OurServices = () => {
               href={service.path}
               className="block group relative overflow-hidden rounded-xl"
             >
-              {/* Service Image */}
               <img
                 src={service.img}
                 alt={service.name}
                 className="w-full h-100 object-cover transition-transform duration-500 group-hover:scale-110"
               />
 
-              {/* Gray Overlay - Applied to all images */}
               <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-70 transition-opacity duration-500"></div>
 
-              {/* Text Overlay */}
               <div className="group">
                 <h2 className="absolute inset-0 flex items-center justify-center text-white text-4xl font-bold great-vibes group-hover:-translate-y-35 duration-300 transition-all">
                   {service.name}

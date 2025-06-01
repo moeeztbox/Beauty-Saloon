@@ -1,5 +1,3 @@
-import React from "react";
-
 function GalleryPic() {
   const images = [
     "https://cosmosalon.pk/wp-content/uploads/2023/05/600x600-2-min.jpg",
@@ -18,13 +16,10 @@ function GalleryPic() {
 
   return (
     <div className="px-6 min-h-screen">
-      {/* Title */}
-
       <h1 className="great-vibes sm:pl-32 text-center sm:text-left text-5xl sm:text-6xl font-bold text-[#D4AF37] my-12">
         Gallery
       </h1>
 
-      {/* Image Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12">
         {images.map((src, idx) => (
           <div key={idx} className="overflow-hidden rounded-2xl shadow-lg">

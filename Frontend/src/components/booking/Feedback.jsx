@@ -1,4 +1,3 @@
-import React from "react";
 import { Star, ChevronLeft } from "lucide-react";
 
 function Feedback({
@@ -48,7 +47,6 @@ function Feedback({
         ></textarea>
       </div>
 
-      {/* Center the Submit button */}
       <div className="flex justify-between mt-6">
         <button
           onClick={handleBack}

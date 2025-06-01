@@ -1,4 +1,3 @@
-import React from "react";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 
 function Payment({ formData, handleChange, handleNext, handleBack }) {
@@ -82,7 +81,6 @@ function Payment({ formData, handleChange, handleNext, handleBack }) {
         />
       </div>
 
-      {/* Navigation Buttons */}
       <div className="flex justify-between mt-6">
         <button
           onClick={handleBack}

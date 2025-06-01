@@ -41,7 +41,6 @@ export default function Branches() {
             index % 2 === 1 ? "md:flex-row-reverse" : ""
           } bg-white shadow-md overflow-hidden`}
         >
-          {/* Map Section */}
           <div className="flex justify-center items-center w-full md:w-1/2 bg-gray-100 p-6">
             <iframe
               src={branch.mapEmbedUrl}
@@ -52,7 +51,6 @@ export default function Branches() {
             ></iframe>
           </div>
 
-          {/* Information Section */}
           <div className="flex flex-col justify-center p-6 space-y-4 w-full md:w-1/2">
             <h3 className="text-5xl great-vibes text-[#D4AF37]">
               {branch.name}
